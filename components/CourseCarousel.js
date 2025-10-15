@@ -15,7 +15,7 @@ export default function CourseCarousel({ courses }) {
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: false,
-    dotsClass: "slick-dots !bottom-5" // Positions dots nicely
+    dotsClass: "slick-dots !bottom-5"
   };
 
   return (
@@ -24,22 +24,22 @@ export default function CourseCarousel({ courses }) {
         {courses.map((course) => (
           <div key={course.title}>
             <div className="grid grid-cols-1 lg:grid-cols-2 bg-white">
-
-              {/* Left Side: Thumbnail Image - Fixed to cover properly */}
-              <div className="relative h-[450px]">
+              
+              {/* Left Side: Thumbnail Image - with the overflow-hidden fix */}
+              <div className="relative h-[450px] overflow-hidden">
                 <Image
                   src={course.thumbnail}
                   alt={`Thumbnail for ${course.title}`}
                   fill
-                  style={{ objectFit: 'cover' }} // This ensures the image covers the area without distortion
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
 
-              {/* Right Side: Course Details - All details added back */}
+              {/* Right Side: Course Details */}
               <div className="relative flex flex-col p-10">
                 <h2 className="text-4xl font-bold leading-tight text-gray-900">{course.title}</h2>
                 <p className="text-gray-600 my-3">{course.description}</p>
-
+                
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 my-3 text-sm text-gray-700">
                   <span className="bg-yellow-100 text-yellow-800 font-bold px-3 py-1 rounded">Top Rated</span>
                   <span className="text-orange-500 font-bold">★ {course.rating}</span>
