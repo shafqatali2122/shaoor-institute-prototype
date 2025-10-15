@@ -1,6 +1,8 @@
 // app/page.js
 import CourseCard from '../components/CourseCard';
 import CourseCarousel from '../components/CourseCarousel';
+import Endorsements from '../components/Endorsements';     // 1. Re-import Endorsements
+import AboutInstitute from '../components/AboutInstitute';   // 2. Re-import AboutInstitute
 
 // CSS files for the carousel library
 import "slick-carousel/slick/slick.css"; 
@@ -66,6 +68,11 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* 3. Add the sections back to the page */}
+      <Endorsements />
+      <AboutInstitute />
+
     </main>
   );
 }
