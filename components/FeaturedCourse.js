@@ -1,5 +1,4 @@
 // components/FeaturedCourse.js
-import Image from 'next/image'; // Make sure Image is imported
 
 export default function FeaturedCourse() {
   return (
@@ -7,20 +6,9 @@ export default function FeaturedCourse() {
       <div className="grid grid-cols-1 lg:grid-cols-2 bg-white">
 
         {/* Left side: Video Preview */}
-        <div className="relative flex flex-col items-center justify-center p-8 min-h-[450px] text-white overflow-hidden">
-          {/* FIX: Using the Next.js Image component for the background */}
-          <Image
-            src="https://images.unsplash.com/photo-1518063324424-79b7d8b50965?q=80&w=2070"
-            alt="Course preview background"
-            fill // This makes the image fill the container
-            style={{ objectFit: 'cover' }} // This makes it behave like a background image
-            className="-z-10" // Puts the image behind the content
-          />
-          <div className="absolute inset-0 bg-black opacity-60 -z-10"></div>
-
+        <div className="relative flex flex-col items-center justify-center p-8 min-h-[450px] text-white bg-slate-900">
           <div className="relative z-10 text-center">
             <button className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-white/50 transition-transform transform hover:scale-110 mb-6">
-              {/* FIX: Using a reliable SVG for the play icon */}
               <svg className="w-8 h-8 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z" />
               </svg>
