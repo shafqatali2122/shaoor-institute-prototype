@@ -2,47 +2,47 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Data for the categories, now including thumbnails, course counts, and instructors
+// Data for the categories, using your existing scholar images as thumbnails
 const categories = [
   { 
     name: 'Uloom e Islami', 
     slug: 'uloom-e-islami', 
-    thumbnail: '/thumbnails/uloom_islami.jpg', // Make sure you have this image
+    thumbnail: '/scholar_4.avif', // Using your existing images
     courseCount: 8,
     instructors: 'Dr. Atif Aslam, Shoaib Madni'
   },
   { 
     name: 'Uloom e Jadida', 
     slug: 'uloom-e-jadida', 
-    thumbnail: '/thumbnails/uloom_jadida.jpg', // Make sure you have this image
+    thumbnail: '/scholar_3.avif', // Using your existing images
     courseCount: 5,
     instructors: 'Dr Haseeb Ahmed Khan'
   },
   { 
     name: 'Tafheem e Maghrib', 
     slug: 'tafheem-e-maghrib', 
-    thumbnail: '/thumbnails/tafheem_maghrib.jpg', // Make sure you have this image
+    thumbnail: '/scholar_2.avif', // Using your existing images
     courseCount: 12,
     instructors: 'Qaisar Ahmed Raja'
   },
   { 
     name: 'Jadeed Falsafa', 
     slug: 'jadeed-falsafa', 
-    thumbnail: '/thumbnails/jadeed_falsafa.jpg', // Make sure you have this image
+    thumbnail: '/scholar_1.avif', // Using your existing images
     courseCount: 7,
     instructors: 'Dr. Atif Aslam'
   },
   { 
     name: 'Tazkiyah e Nafs', 
     slug: 'tazkiyah-e-nafs', 
-    thumbnail: '/thumbnails/tazkiyah_nafs.jpg', // Make sure you have this image
+    thumbnail: '/scholar_2.avif', // Reusing an image
     courseCount: 10,
     instructors: 'Shoaib Madni'
   },
   { 
     name: 'Ilhaad', 
     slug: 'ilhaad', 
-    thumbnail: '/thumbnails/ilhaad.jpg', // Make sure you have this image
+    thumbnail: '/scholar_4.avif', // Reusing an image
     courseCount: 4,
     instructors: 'Qaisar Ahmed Raja'
   },
@@ -55,7 +55,6 @@ export default function CategoryGrid() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {categories.map((category) => (
           <Link key={category.slug} href={`/category/${category.slug}`}>
-            {/* This is the new, professionally styled card */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden 
                             transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 group">
 
@@ -65,7 +64,7 @@ export default function CategoryGrid() {
                   src={category.thumbnail}
                   alt={`Thumbnail for ${category.name}`}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', objectPosition: 'center' }} // Ensures images are centered
                   className="transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
