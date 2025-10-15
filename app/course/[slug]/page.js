@@ -3,43 +3,40 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // --- MOCK DATA FOR THE PROTOTYPE ---
-// In a real app, this would come from a database.
-// We are populating it with data from your PDFs.
 const courseData = {
   materialism: {
-    [cite_start]title: 'Materialism (مٹیریل ازم)', // [cite: 347, 348]
-    [cite_start]courseNumber: '1001', // [cite: 349]
-    [cite_start]creditHours: '1.5', // [cite: 350]
+    title: 'Materialism (مٹیریل ازم)',
+    courseNumber: '1001',
+    creditHours: '1.5',
     thumbnail: '/materialism_thumbnail.jpg',
     description:
-      [cite_start]"Materialism is a philosophy that holds that matter is the fundamental substance in nature, and that all things, including mental states and consciousness, are results of material interactions. This course provides a critical review of this ideology from an Islamic perspective, exploring its philosophical roots, psychological effects, and societal impact.", // [cite: 377, 395, 404, 409]
+      "This course provides a critical review of Materialism from an Islamic perspective, exploring its philosophical roots, psychological effects, and societal impact.",
     objectives: [
-      [cite_start]'What is Materialism?', // [cite: 376]
-      [cite_start]'Key Aspects of Materialism', // [cite: 402]
-      [cite_start]'The Conflict Between Materialism and Spirituality in Humans', // [cite: 415]
-      [cite_start]'Consequences of a Materialistic Lifestyle', // [cite: 427]
-      [cite_start]'Psychological Effects of Materialism', // [cite: 477]
-      [cite_start]'How Materialism Spreads in Islamic Societies', // [cite: 491]
-      [cite_start]'A Comparison Between Religion and Materialism', // [cite: 511]
+      'What is Materialism?',
+      'Key Aspects of Materialism',
+      'The Conflict Between Materialism and Spirituality',
+      'Consequences of a Materialistic Lifestyle',
+      'Psychological Effects of Materialism',
+      'How Materialism Spreads in Islamic Societies',
+      'A Comparison Between Religion and Materialism',
     ],
     courseKit: [
-      [cite_start]{ title: 'Lesson', file: '1001-1.1 Lesson.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'Lesson Plan (For Teachers)', file: '1001-1.2 Lesson Plan for Teachers.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'Reflective Questions Cards', file: '1001-1.3 Refelective Questions Cards.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'Scenario Cards', file: '1001-1.4 Scenerio Cards.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'Questionnaire', file: '1001-1.5 Questionnaire.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'Color Sheet', file: '1001-1.6 Color Sheet.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'Surah Takasur Card & Worksheet', file: '1001-1.7 Surah Takasur card & worksheet.pdf' }, // [cite: 365]
-      [cite_start]{ title: 'PPT & PDF Presentations', file: '1001-1.8 PPT Presentation.pptm' }, // [cite: 365]
+      { title: 'Lesson', file: '1001-1.1 Lesson.pdf' },
+      { title: 'Lesson Plan (For Teachers)', file: '1001-1.2 Lesson Plan for Teachers.pdf' },
+      { title: 'Reflective Questions Cards', file: '1001-1.3 Refelective Questions Cards.pdf' },
+      { title: 'Scenario Cards', file: '1001-1.4 Scenerio Cards.pdf' },
+      { title: 'Questionnaire', file: '1001-1.5 Questionnaire.pdf' },
+      { title: 'Color Sheet', file: '1001-1.6 Color Sheet.pdf' },
+      { title: 'Surah Takasur Card & Worksheet', file: '1001-1.7 Surah Takasur card & worksheet.pdf' },
+      { title: 'PPT & PDF Presentations', file: '1001-1.8 PPT Presentation.pptm' },
     ],
     instructors: [
-      [cite_start]{ name: 'Shoaib Madni', role: 'Project Director' }, // [cite: 357, 358]
-      [cite_start]{ name: 'Hafiz Muhammad Shariq', role: 'Project Manager' }, // [cite: 359, 360]
-      [cite_start]{ name: 'Qaisar Ahmed Raja', role: 'Contributor & Reviewer' }, // [cite: 361, 362]
-      [cite_start]{ name: 'Dr Haseeb Ahmed Khan', role: 'Contributor & Reviewer' }, // [cite: 361, 363]
+      { name: 'Shoaib Madni', role: 'Project Director', image: '/scholar_2.avif' },
+      { name: 'Hafiz Muhammad Shariq', role: 'Project Manager', image: '/scholar_1.avif' },
+      { name: 'Qaisar Ahmed Raja', role: 'Contributor & Reviewer', image: '/scholar_4.avif' },
+      { name: 'Dr Haseeb Ahmed Khan', role: 'Contributor & Reviewer', image: '/scholar_3.avif' },
     ],
   },
-  // You can add more courses here in the future
 };
 // --- END OF MOCK DATA ---
 
@@ -56,14 +53,13 @@ export default function CoursePage({ params }) {
       <nav className="w-full max-w-7xl p-4 mb-8">
         <Link href="/" className="text-blue-600 hover:underline">&larr; Back to Home</Link>
       </nav>
-
+      
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* --- LEFT COLUMN (MAIN CONTENT) --- */}
         <div className="lg:col-span-2">
           <h1 className="text-4xl font-extrabold text-gray-900">{course.title}</h1>
           <p className="mt-4 text-lg text-gray-600">{course.description}</p>
 
-          {/* Course Objectives */}
           <div className="mt-8 bg-white p-6 rounded-lg shadow-md border border-gray-100">
             <h2 className="text-2xl font-bold mb-4">What You&apos;ll Learn</h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
@@ -76,7 +72,6 @@ export default function CoursePage({ params }) {
             </ul>
           </div>
 
-          {/* CourseKit Downloadables */}
           <div className="mt-8">
             <h2 className="text-2xl font-bold mb-4">Complete CourseKit</h2>
             <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
@@ -91,13 +86,12 @@ export default function CoursePage({ params }) {
             </div>
           </div>
 
-          {/* Instructors */}
           <div className="mt-8">
             <h2 className="text-2xl font-bold mb-4">Instructors & Contributors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {course.instructors.map((instructor) => (
                 <div key={instructor.name} className="bg-white p-4 rounded-lg shadow-md border border-gray-100 flex items-center">
-                  <Image src="/scholar_1.avif" alt={instructor.name} width={60} height={60} className="rounded-full mr-4" />
+                  <Image src={instructor.image} alt={instructor.name} width={60} height={60} className="rounded-full mr-4 object-cover" />
                   <div>
                     <h4 className="font-bold text-gray-900">{instructor.name}</h4>
                     <p className="text-sm text-gray-500">{instructor.role}</p>
