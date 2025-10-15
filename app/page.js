@@ -1,30 +1,39 @@
 // app/page.js
 import CourseCard from '../components/CourseCard';
-import CourseCarousel from '../components/CourseCarousel'; // 1. Import the new carousel
+import CourseCarousel from '../components/CourseCarousel';
 
-// CSS files for the carousel library. These are required for it to work.
+// CSS files for the carousel library
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-// Data for the 3 latest courses to show in the carousel
+// Data for the carousel with all details
 const latestCourses = [
   {
     title: 'Materialism (مٹیریل ازم)',
     description: 'A comprehensive course exploring the philosophical, psychological, and societal impacts of materialism.',
-    thumbnail: '/materialism_thumbnail.jpg', // Make sure you have this image in your /public folder
-    courseNumber: 'Course No. 1001'
+    thumbnail: '/materialism_thumbnail.jpg',
+    rating: '4.8',
+    ratingCount: '1,205',
+    studentCount: '11,432',
+    creator: 'Shaoor Institute'
   },
   {
     title: 'Modernism',
     description: 'Understanding the key concepts of Modernity, its philosophical roots, and its impact on society.',
-    thumbnail: '/modernism_thumbnail.jpg', // You will need to add an image with this name
-    courseNumber: 'Course No. 1002'
+    thumbnail: '/modernism_thumbnail.jpg',
+    rating: '4.7',
+    ratingCount: '987',
+    studentCount: '9,821',
+    creator: 'Shaoor Institute'
   },
   {
     title: 'Feminism',
     description: 'A critical review of feminist movements, core tenets, gender theory, and critiques from an Islamic perspective.',
-    thumbnail: '/feminism_thumbnail.jpg', // You will need to add an image with this name
-    courseNumber: 'Course No. 1003'
+    thumbnail: '/feminism_thumbnail.jpg',
+    rating: '4.9',
+    ratingCount: '2,154',
+    studentCount: '15,309',
+    creator: 'Shaoor Institute'
   }
 ];
 
@@ -47,7 +56,6 @@ export default function Home() {
         <p className="mt-3 text-lg text-gray-600">Intellectual and Educational Courses by Shaoor Institute</p>
       </header>
 
-      {/* 2. Use the new CourseCarousel component and pass the latest courses data to it */}
       <CourseCarousel courses={latestCourses} />
 
       <section className="w-full max-w-7xl mb-12">
