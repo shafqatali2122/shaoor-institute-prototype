@@ -1,41 +1,14 @@
 // app/page.js
 import CourseCard from '../components/CourseCard';
 import FeaturedCourse from '../components/FeaturedCourse';
+import Endorsements from '../components/Endorsements';     // 1. Import Endorsements
+import AboutInstitute from '../components/AboutInstitute';   // 2. Import AboutInstitute
 
 const courses = [
-  {
-    icon: 'purple',
-    title: 'Modernism',
-    description: 'Understanding the key concepts of Modernity.',
-    price: '99',
-    originalPrice: '129',
-    details: ['10 Lessons', 'Quizzes', 'Certificate'],
-    featureTitle: "You'll Learn:",
-    features: ['Historical Context', 'Philosophical Roots', 'Impact on Society', 'Islamic Perspective', 'Key Thinkers'],
-    color: 'purple'
-  },
-  {
-    icon: 'group',
-    title: 'Feminism',
-    description: 'A critical review of feminist movements and thought.',
-    price: '99',
-    originalPrice: '129',
-    details: ['12 Lessons', 'Discussions', 'Certificate'],
-    featureTitle: "You'll Experience:",
-    features: ['Waves of Feminism', 'Core Tenets', 'Intersectionality', 'Gender Theory', 'Responses and Critiques'],
-    color: 'orange'
-  },
-  {
-    icon: 'blue',
-    title: 'Liberalism',
-    description: 'Exploring the ideology of individual liberty and rights.',
-    price: '99',
-    originalPrice: '129',
-    details: ['8 Lessons', 'Case Studies', 'Certificate'],
-    featureTitle: "You'll Learn:",
-    features: ['Classical vs. Modern', 'Economic Liberalism', 'Political Philosophy', 'Secularism', 'Its influence on Muslim thought'],
-    color: 'blue'
-  }
+  // ... (course data is the same)
+  { icon: 'purple', title: 'Modernism', description: 'Understanding the key concepts of Modernity.', price: '99', originalPrice: '129', details: ['10 Lessons', 'Quizzes', 'Certificate'], featureTitle: "You'll Learn:", features: ['Historical Context', 'Philosophical Roots', 'Impact on Society', 'Islamic Perspective', 'Key Thinkers'], color: 'purple' },
+  { icon: 'group', title: 'Feminism', description: 'A critical review of feminist movements and thought.', price: '99', originalPrice: '129', details: ['12 Lessons', 'Discussions', 'Certificate'], featureTitle: "You'll Experience:", features: ['Waves of Feminism', 'Core Tenets', 'Intersectionality', 'Gender Theory', 'Responses and Critiques'], color: 'orange' },
+  { icon: 'blue', title: 'Liberalism', description: 'Exploring the ideology of individual liberty and rights.', price: '99', originalPrice: '129', details: ['8 Lessons', 'Case Studies', 'Certificate'], featureTitle: "You'll Learn:", features: ['Classical vs. Modern', 'Economic Liberalism', 'Political Philosophy', 'Secularism', 'Its influence on Muslim thought'], color: 'blue' }
 ];
 
 export default function Home() {
@@ -60,6 +33,11 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* 3. Add the new components */}
+      <Endorsements />
+      <AboutInstitute />
+
     </main>
   );
 }
