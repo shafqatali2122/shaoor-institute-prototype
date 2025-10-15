@@ -4,6 +4,7 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from 'next/image';
+import Link from 'next/link'; // 1. Import Link
 
 export default function CourseCarousel({ courses }) {
   const settings = {
@@ -24,8 +25,6 @@ export default function CourseCarousel({ courses }) {
         {courses.map((course) => (
           <div key={course.title}>
             <div className="grid grid-cols-1 lg:grid-cols-2 bg-white">
-              
-              {/* Left Side: Thumbnail Image - with the overflow-hidden fix */}
               <div className="relative h-[450px] overflow-hidden">
                 <Image
                   src={course.thumbnail}
@@ -34,30 +33,25 @@ export default function CourseCarousel({ courses }) {
                   style={{ objectFit: 'cover' }}
                 />
               </div>
-
-              {/* Right Side: Course Details */}
               <div className="relative flex flex-col p-10">
                 <h2 className="text-4xl font-bold leading-tight text-gray-900">{course.title}</h2>
                 <p className="text-gray-600 my-3">{course.description}</p>
-                
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 my-3 text-sm text-gray-700">
                   <span className="bg-yellow-100 text-yellow-800 font-bold px-3 py-1 rounded">Top Rated</span>
                   <span className="text-orange-500 font-bold">★ {course.rating}</span>
                   <span>({course.ratingCount} ratings)</span>
                   <span>{course.studentCount} students</span>
                 </div>
-
                 <div className="text-sm mb-6">
                   <span>Created by <a href="#" className="text-blue-600 font-semibold underline">{course.creator}</a></span>
                 </div>
-
                 <div className="mt-auto">
-                   <a href="#" className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:bg-blue-700">
+                  {/* 2. Replace <a> with <Link> and use the dynamic href */}
+                  <Link href={`/course/${course.slug}`} className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:bg-blue-700">
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
-
             </div>
           </div>
         ))}

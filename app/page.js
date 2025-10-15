@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Data for the carousel
 const latestCourses = [
   {
+    slug: 'materialism', // The slug for the course page
     title: 'Materialism (مٹیریل ازم)',
     description: 'A comprehensive course exploring the philosophical, psychological, and societal impacts of materialism.',
     thumbnail: '/materialism_thumbnail.jpg',
@@ -20,6 +21,7 @@ const latestCourses = [
     creator: 'Shaoor Institute'
   },
   {
+    slug: 'modernism', // A unique slug for this course
     title: 'Modernism',
     description: 'Understanding the key concepts of Modernity, its philosophical roots, and its impact on society.',
     thumbnail: '/modernism_thumbnail.jpg',
@@ -29,6 +31,7 @@ const latestCourses = [
     creator: 'Shaoor Institute'
   },
   {
+    slug: 'feminism', // A unique slug for this course
     title: 'Feminism',
     description: 'A critical review of feminist movements, core tenets, gender theory, and critiques from an Islamic perspective.',
     thumbnail: '/feminism_thumbnail.jpg',
