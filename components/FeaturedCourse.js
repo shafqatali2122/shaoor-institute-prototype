@@ -9,8 +9,15 @@ export default function FeaturedCourse() {
         <div className="relative flex flex-col items-center justify-center p-8 min-h-[450px] text-white bg-slate-900">
           <div className="relative z-10 text-center">
             <button className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-white/50 transition-transform transform hover:scale-110 mb-6">
-              <svg className="w-8 h-8 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
+              {/* FIX: Using a more robust SVG for the play icon */}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="currentColor" 
+                className="w-8 h-8 text-white"
+                style={{ marginLeft: '4px' }} // Visually centers the icon
+              >
+                <path d="M8 5.14v13.72L19.78 12 8 5.14z" />
               </svg>
             </button>
             <p className="font-semibold">Preview this course</p>
