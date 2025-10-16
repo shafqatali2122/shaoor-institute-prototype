@@ -9,14 +9,14 @@ const enrolledCourses = [
     title: 'Materialism (مٹیریل ازم)',
     creator: 'Shaoor Institute',
     thumbnail: '/materialism_thumbnail.jpg',
-    progress: 75, // The student is 75% done
+    progress: 75,
   },
   {
     slug: 'modernism',
     title: 'Modernism',
     creator: 'Shaoor Institute',
     thumbnail: '/modernism_thumbnail.jpg',
-    progress: 20, // The student is 20% done
+    progress: 20,
   },
 ];
 
@@ -41,7 +41,8 @@ export default function MyCoursesPage() {
           </div>
         ) : (
           <div className="text-center bg-white p-12 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold">You haven't enrolled in any courses yet.</h3>
+            {/* This is the corrected line */}
+            <h3 className="text-2xl font-bold">You haven&apos;t enrolled in any courses yet.</h3>
             <Link href="/">
               <div className="mt-6 inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700">
                 Explore Courses
