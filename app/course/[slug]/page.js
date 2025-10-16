@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Reviews from '../../../components/Reviews';
 import SimilarCourses from '../../../components/SimilarCourses';
-import DownloadOptions from '../../../components/DownloadOptions'; // 1. Import the new component
+import DownloadOptions from '../../../components/DownloadOptions'; // The new component
 
 // --- MOCK DATA ---
 const courseData = {
@@ -31,7 +31,16 @@ export default function CoursePage({ params }) {
 
   if (!course) { return <div className="p-12 text-center">Course not found.</div>; }
 
-  if (!course.courseKit) { /* ... (placeholder page code is the same) ... */ }
+  // Placeholder page for courses that aren't fully detailed yet
+  if (!course.courseKit) {
+    return (
+      <main className="flex min-h-screen flex-col items-center p-6 md:p-12 bg-gray-50">
+         <nav className="w-full max-w-7xl p-4 mb-8"><Link href="/" className="text-blue-600 hover:underline">&larr; Back to Home</Link></nav>
+         <h1 className="text-4xl font-extrabold text-gray-900">{course.title}</h1>
+         <p className="mt-4 text-lg text-gray-600">{course.description}</p>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6 md:p-12 bg-gray-50">
@@ -48,7 +57,7 @@ export default function CoursePage({ params }) {
             </ul>
           </div>
 
-          {/* 2. Replace the old CourseKit list with the new DownloadOptions component */}
+          {/* This now uses the new DownloadOptions component */}
           <DownloadOptions courseKit={course.courseKit} />
 
           <div className="mt-8">
@@ -60,9 +69,24 @@ export default function CoursePage({ params }) {
           <Reviews reviews={course.reviews} />
           <SimilarCourses courses={course.similarCourses} />
         </div>
-        {/* --- RIGHT COLUMN --- */}
+
+        {/* --- RIGHT COLUMN (ENROLLMENT CARD) --- */}
         <div className="relative">
-          {/* ... (The right column code is the same) ... */}
+          <div className="sticky top-8 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden">
+            <Image src={course.thumbnail} alt={`Thumbnail for ${course.title}`} width={500} height={300} className="w-full object-cover" />
+            <div className="p-6">
+              <span className="text-4xl font-bold text-gray-900">Free</span>
+              <a href="#" className="mt-4 block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700">Enroll Now</a>
+              <div className="mt-4 border-t pt-4">
+                <h4 className="font-semibold text-gray-800 mb-2">This course includes:</h4>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li className="flex items-center"><span className="mr-2">📄</span><span>{course.creditHours} Credit Hours</span></li>
+                  <li className="flex items-center"><span className="mr-2">📁</span><span>{course.courseKit.length} Downloadable Resources</span></li>
+                  <li className="flex items-center"><span className="mr-2">🏆</span><span>Certificate of Completion</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
