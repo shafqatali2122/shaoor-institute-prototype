@@ -17,7 +17,8 @@ export default function CertificatePage({ params }) {
 
       <header className="w-full max-w-4xl text-center mb-8">
         <h1 className="text-4xl font-extrabold text-gray-900">Congratulations!</h1>
-        <p className="mt-2 text-lg text-gray-600">You've successfully completed the course.</p>
+        {/* This is the corrected line */}
+        <p className="mt-2 text-lg text-gray-600">You&apos;ve successfully completed the course.</p>
       </header>
 
       <Certificate studentName={studentName} courseName={courseName} date={completionDate} />
