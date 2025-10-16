@@ -26,7 +26,8 @@ export default function EnrolledCourseCard({ course }) {
         </div>
         <p className="text-xs text-right text-gray-600">{course.progress}% Complete</p>
 
-        <Link href={`/course/${course.slug}`}>
+        {/* This is the corrected link */}
+        <Link href={`/learn/${course.slug}`}>
           <div className="mt-4 block w-full text-center bg-gray-800 text-white font-semibold py-2 rounded-lg hover:bg-black">
             Continue Learning
           </div>
