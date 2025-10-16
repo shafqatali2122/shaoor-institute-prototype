@@ -27,7 +27,8 @@ export default function TeachPage() {
           </div>
           <div>
             <h3 className="font-semibold text-xl">Make a Real Impact</h3>
-            <p className="text-gray-600">Contribute to a meaningful cause by helping us build a generation grounded in knowledge and clarity ('Shaoor').</p>
+            {/* This is the corrected line */}
+            <p className="text-gray-600">Contribute to a meaningful cause by helping us build a generation grounded in knowledge and clarity (&apos;Shaoor&apos;).</p>
           </div>
         </div>
 
