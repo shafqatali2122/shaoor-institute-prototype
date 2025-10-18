@@ -16,6 +16,7 @@ export default function Footer() {
             <li><Link href="/my-courses" className="text-gray-300 hover:underline">My Courses</Link></li>
             <li><Link href="/teach" className="text-gray-300 hover:underline">Teach with Us</Link></li>
             <li><Link href="/about" className="text-gray-300 hover:underline">About Us</Link></li> 
+            <li><Link href="/contact" className="text-gray-300 hover:underline">Contact Us</Link></li>
           </ul>
         </div>
         <div>
