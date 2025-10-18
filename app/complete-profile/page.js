@@ -1,63 +1,89 @@
 // app/complete-profile/page.js
-"use client"; // Needs client interactivity for form
+"use client";
 
 import Link from 'next/link';
+
+// Mock course list for the dropdown
+const availableCourses = [
+    { slug: 'materialism', title: 'Materialism (مٹیریل ازم)' },
+    { slug: 'modernism', title: 'Modernism' },
+    { slug: 'feminism', title: 'Feminism' },
+    { slug: 'post-modernism', title: 'Post-Modernism' },
+    { slug: 'liberalism', title: 'Liberalism' },
+    { slug: 'humanism', title: 'Humanism' },
+    { slug: 'ilhaad', title: 'Ilhaad' },
+];
 
 export default function CompleteProfilePage() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 md:p-12 bg-gray-100">
       <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-xl border border-gray-200">
-        
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800">Complete Your Profile</h1>
-          <p className="text-gray-600 mt-2">Please provide some additional details to complete your student profile before enrolling.</p>
+
+        <header className="text-center mb-8 border-b pb-4">
+          <h1 className="text-4xl font-bold text-gray-800">Student Admission Form</h1>
+          <p className="text-gray-600 mt-2">Please provide your details to complete enrollment.</p>
         </header>
 
         <form className="space-y-6">
-          {/* Profile Picture Upload */}
-          <div>
-            <label htmlFor="profile-picture" className="input-label">Profile Picture (Optional)</label>
-            <input id="profile-picture" type="file" accept="image/*" className="input-file"/>
-          </div>
 
-          {/* CNIC Number */}
-          <div>
-            <label htmlFor="cnic" className="input-label">CNIC Number</label>
-            <input type="text" id="cnic" placeholder="e.g., 42201-XXXXXXX-X" className="input-field" required />
-          </div>
+          {/* Personal Information Section */}
+          <fieldset className="space-y-4 border-b pb-6">
+             <legend className="text-lg font-semibold text-gray-700 mb-2">Personal Information</legend>
+             <div>
+                <label htmlFor="profile-picture" className="input-label">Profile Picture (Optional)</label>
+                <input id="profile-picture" type="file" accept="image/*" className="input-file"/>
+             </div>
+             <div>
+                <label htmlFor="cnic" className="input-label">CNIC Number</label>
+                <input type="text" id="cnic" placeholder="e.g., 42201-XXXXXXX-X" className="input-field" required />
+             </div>
+             <div>
+                <label htmlFor="phone" className="input-label">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+92 XXX XXXXXXX" className="input-field" required />
+             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="city" className="input-label">City</label>
+                  <input type="text" id="city" className="input-field" required />
+                </div>
+                <div>
+                  <label htmlFor="country" className="input-label">Country</label>
+                  <input type="text" id="country" defaultValue="Pakistan" className="input-field" required />
+                </div>
+             </div>
+          </fieldset>
 
-          {/* Phone Number */}
-          <div>
-            <label htmlFor="phone" className="input-label">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+92 XXX XXXXXXX" className="input-field" required />
-          </div>
+          {/* Academic Information Section */}
+           <fieldset className="space-y-4 border-b pb-6">
+             <legend className="text-lg font-semibold text-gray-700 mb-2">Academic Information</legend>
+             <div>
+                <label htmlFor="qualifications" className="input-label">Highest Qualification</label>
+                <textarea id="qualifications" rows="3" placeholder="e.g., M.Phil Islamic Studies, BSc Computer Science, Aalimiyyah, etc." className="input-field" required></textarea>
+             </div>
+             {/* Add more fields like Institution if needed */}
+          </fieldset>
 
-          {/* City & Country */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="city" className="input-label">City</label>
-              <input type="text" id="city" className="input-field" required />
-            </div>
-            <div>
-              <label htmlFor="country" className="input-label">Country</label>
-              <input type="text" id="country" defaultValue="Pakistan" className="input-field" required />
-            </div>
-          </div>
-
-          {/* Qualifications */}
-          <div>
-            <label htmlFor="qualifications" className="input-label">Highest Qualification</label>
-            <textarea id="qualifications" rows="3" placeholder="e.g., M.Phil Islamic Studies, BSc Computer Science, Aalimiyyah, etc." className="input-field" required></textarea>
-          </div>
+          {/* Course Selection Section */}
+           <fieldset className="space-y-4">
+             <legend className="text-lg font-semibold text-gray-700 mb-2">Course Selection</legend>
+              <div>
+                <label htmlFor="course-select" className="input-label">Course to Enroll In</label>
+                <select id="course-select" className="input-field" required>
+                  <option value="">Select the course you wish to enroll in...</option>
+                  {availableCourses.map((course) => (
+                    <option key={course.slug} value={course.slug}>{course.title}</option>
+                  ))}
+                </select>
+              </div>
+          </fieldset>
 
           {/* Submit Button */}
-          <button type="submit" className="button-primary w-full">Save Profile & Continue Enrollment</button>
+          <button type="submit" className="button-primary w-full !mt-8">Submit Admission Form</button>
         </form>
 
-        {/* Link back if needed */}
         <div className="mt-6 text-center text-sm">
           <Link href="/" className="text-gray-500 hover:underline">
-            Skip for now (Return Home)
+            Cancel and Return Home
           </Link>
         </div>
       </div>
