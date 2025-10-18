@@ -11,9 +11,11 @@ export default function Footer() {
         </div>
         <div>
           <h3 className="font-bold text-lg">Quick Links</h3>
+          {/* Make sure all three links are inside this ul */}
           <ul className="mt-2 space-y-1 text-sm">
             <li><Link href="/my-courses" className="text-gray-300 hover:underline">My Courses</Link></li>
             <li><Link href="/teach" className="text-gray-300 hover:underline">Teach with Us</Link></li>
+            <li><Link href="/about" className="text-gray-300 hover:underline">About Us</Link></li> 
           </ul>
         </div>
         <div>
@@ -27,5 +29,3 @@ export default function Footer() {
     </footer>
   );
 }
-// Inside components/Footer.js, under Quick Links
-<li><Link href="/about" className="text-gray-300 hover:underline">About Us</Link></li>
