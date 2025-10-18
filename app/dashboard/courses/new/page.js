@@ -2,15 +2,10 @@
 import Link from 'next/link';
 
 export default function NewCoursePage() {
-  // Mock categories for the dropdown - you'd fetch these in a real app
-  const categories = [
-    { name: 'Uloom e Islami', slug: 'uloom-e-islami' },
-    { name: 'Uloom e Jadida', slug: 'uloom-e-jadida' },
-    { name: 'Tafheem e Maghrib', slug: 'tafheem-e-maghrib' },
-    { name: 'Jadeed Falsafa', slug: 'jadeed-falsafa' },
-    { name: 'Tazkiyah e Nafs', slug: 'tazkiyah-e-nafs' },
-    { name: 'Ilhaad', slug: 'ilhaad' },
-  ];
+  // Mock data for dropdowns
+  const categories = [ { name: 'Uloom e Islami', slug: 'uloom-e-islami' }, { name: 'Uloom e Jadida', slug: 'uloom-e-jadida' }, { name: 'Tafheem e Maghrib', slug: 'tafheem-e-maghrib' }, { name: 'Jadeed Falsafa', slug: 'jadeed-falsafa' }, { name: 'Tazkiyah e Nafs', slug: 'tazkiyah-e-nafs' }, { name: 'Ilhaad', slug: 'ilhaad' } ];
+  const levels = ['Beginner', 'Intermediate', 'Advanced', 'All Levels'];
+  const languages = ['Urdu', 'English'];
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6 md:p-12 bg-gray-50">
@@ -20,7 +15,7 @@ export default function NewCoursePage() {
 
       <header className="w-full max-w-4xl text-center mb-12">
         <h1 className="text-5xl font-extrabold text-gray-900">Create a New Course</h1>
-        <p className="mt-3 text-lg text-gray-600">Step 1: Basic Information & Landing Page Details</p>
+        <p className="mt-3 text-lg text-gray-600">Step 1: Course Landing Page Details</p>
       </header>
 
       <section className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-lg border border-gray-100">
@@ -28,30 +23,54 @@ export default function NewCoursePage() {
           {/* Course Title */}
           <div>
             <label htmlFor="course-title" className="block text-sm font-medium text-gray-700">Course Title</label>
-            <input type="text" id="course-title" placeholder="e.g., Materialism (مٹیریل ازم)" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
+            <input type="text" id="course-title" placeholder="e.g., Materialism (مٹیریل ازم)" className="mt-1 block w-full input-field" />
           </div>
 
-          {/* Course Subtitle (Optional) */}
+          {/* Course Subtitle */}
           <div>
-            <label htmlFor="course-subtitle" className="block text-sm font-medium text-gray-700">Course Subtitle (Optional)</label>
-            <input type="text" id="course-subtitle" placeholder="A brief, catchy phrase summarizing the course" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
+            <label htmlFor="course-subtitle" className="block text-sm font-medium text-gray-700">Course Subtitle</label>
+            <input type="text" id="course-subtitle" placeholder="A brief, catchy phrase summarizing the course" className="mt-1 block w-full input-field" />
           </div>
 
           {/* Course Description */}
           <div>
             <label htmlFor="course-description" className="block text-sm font-medium text-gray-700">Course Description</label>
-            <textarea id="course-description" rows="5" placeholder="Provide a detailed description of the course content, objectives, and target audience." className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+            <textarea id="course-description" rows="5" placeholder="Provide a detailed description of the course content, objectives, and target audience." className="mt-1 block w-full input-field"></textarea>
           </div>
 
-          {/* Category Selection */}
+          {/* Basic Info Row (Language, Level, Category) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <label htmlFor="language" className="block text-sm font-medium text-gray-700">Language</label>
+              <select id="language" className="mt-1 block w-full input-field">
+                {languages.map((lang) => (<option key={lang} value={lang}>{lang}</option>))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="level" className="block text-sm font-medium text-gray-700">Level</label>
+              <select id="level" className="mt-1 block w-full input-field">
+                {levels.map((level) => (<option key={level} value={level}>{level}</option>))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
+              <select id="category" className="mt-1 block w-full input-field">
+                <option value="">Select category...</option>
+                {categories.map((cat) => (<option key={cat.slug} value={cat.slug}>{cat.name}</option>))}
+              </select>
+            </div>
+          </div>
+
+          {/* Target Audience */}
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700">Course Category</label>
-            <select id="category" className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-              <option value="">Select a category...</option>
-              {categories.map((cat) => (
-                <option key={cat.slug} value={cat.slug}>{cat.name}</option>
-              ))}
-            </select>
+            <label htmlFor="target-audience" className="block text-sm font-medium text-gray-700">Who is this course for?</label>
+            <textarea id="target-audience" rows="3" placeholder="Describe your target students (e.g., students of philosophy, individuals seeking spiritual growth, etc.). List 3-4 key groups." className="mt-1 block w-full input-field"></textarea>
+          </div>
+
+          {/* Requirements/Prerequisites */}
+          <div>
+            <label htmlFor="requirements" className="block text-sm font-medium text-gray-700">Requirements / Prerequisites (Optional)</label>
+            <textarea id="requirements" rows="3" placeholder="List any required skills, experience, or software needed before starting the course." className="mt-1 block w-full input-field"></textarea>
           </div>
 
           {/* Thumbnail Upload */}
@@ -78,6 +97,22 @@ export default function NewCoursePage() {
           </button>
         </form>
       </section>
+
+      {/* Helper CSS for input fields - Add this at the end if not using global styles */}
+      <style jsx>{`
+        .input-field {
+          padding: 0.5rem 0.75rem;
+          border: 1px solid #d1d5db; /* gray-300 */
+          border-radius: 0.375rem; /* rounded-md */
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+          width: 100%;
+        }
+        .input-field:focus {
+          outline: none;
+          border-color: #3b82f6; /* blue-500 */
+          box-shadow: 0 0 0 1px #3b82f6; /* ring-blue-500 */
+        }
+      `}</style>
     </main>
   );
 }
