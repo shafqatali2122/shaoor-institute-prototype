@@ -1,4 +1,5 @@
-// app/contact/page.js
+"use client"; // This must be the very first line
+
 import Link from 'next/link';
 
 export default function ContactPage() {
