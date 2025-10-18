@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Reviews from '../../../components/Reviews';
 import SimilarCourses from '../../../components/SimilarCourses';
-import DownloadOptions from '../../../components/DownloadOptions'; // The new component
+import DownloadOptions from '../../../components/DownloadOptions';
 
 // --- MOCK DATA ---
 const courseData = {
@@ -38,6 +38,8 @@ export default function CoursePage({ params }) {
          <nav className="w-full max-w-7xl p-4 mb-8"><Link href="/" className="text-blue-600 hover:underline">&larr; Back to Home</Link></nav>
          <h1 className="text-4xl font-extrabold text-gray-900">{course.title}</h1>
          <p className="mt-4 text-lg text-gray-600">{course.description}</p>
+         {/* Add a simple enroll button for placeholder pages too */}
+         <a href={`/checkout/${slug}`} className="mt-8 inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700">Enroll Now (Free)</a>
       </main>
     );
   }
@@ -56,10 +58,7 @@ export default function CoursePage({ params }) {
               {course.objectives.map((o) => (<li key={o} className="flex items-start"><span className="text-blue-500 mr-2 mt-1">✔</span><span>{o}</span></li>))}
             </ul>
           </div>
-
-          {/* This now uses the new DownloadOptions component */}
           <DownloadOptions courseKit={course.courseKit} />
-
           <div className="mt-8">
             <h2 className="text-2xl font-bold mb-4">Instructors & Contributors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -76,7 +75,8 @@ export default function CoursePage({ params }) {
             <Image src={course.thumbnail} alt={`Thumbnail for ${course.title}`} width={500} height={300} className="w-full object-cover" />
             <div className="p-6">
               <span className="text-4xl font-bold text-gray-900">Free</span>
-              <a href="#" className="mt-4 block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700">Enroll Now</a>
+              {/* This is the updated Enroll Now button link */}
+              <a href={`/checkout/${slug}`} className="mt-4 block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700">Enroll Now</a>
               <div className="mt-4 border-t pt-4">
                 <h4 className="font-semibold text-gray-800 mb-2">This course includes:</h4>
                 <ul className="text-sm text-gray-600 space-y-2">
