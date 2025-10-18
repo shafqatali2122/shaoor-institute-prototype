@@ -27,3 +27,5 @@ export default function Footer() {
     </footer>
   );
 }
+// Inside components/Footer.js, under Quick Links
+<li><Link href="/about" className="text-gray-300 hover:underline">About Us</Link></li>
