@@ -7,7 +7,7 @@ import Footer from '../components/Footer'; // Import the new Footer component
 import Link from 'next/link';
 
 // CSS files for the carousel library
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Data for the carousel
@@ -54,7 +54,8 @@ export default function Home() {
           <div className="flex items-center space-x-6 font-semibold">
             <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
             <Link href="/my-courses" className="text-gray-700 hover:text-blue-600">My Courses</Link>
-            <a href="#" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Login</a>
+            {/* This is the corrected line */}
+            <Link href="/auth" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Login</Link>
           </div>
         </nav>
 
