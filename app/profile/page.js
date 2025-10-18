@@ -1,4 +1,5 @@
-// app/profile/page.js
+"use client"; // Add this line at the very top
+
 import Link from 'next/link';
 
 export default function ProfilePage() {
